@@ -19,18 +19,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
-
-interface ItemList {
-  id: number
-  content: string
-  date: number
-  status: string
-}
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
+import { ListType } from '~/types'
 
 @Component
 export default class List extends Vue {
-  itemList: ItemList[] = []
+  @Prop({ type: Array, required: true })
+  itemList: ListType.ItemList[] = []
 
   created() {
     this.itemList = this.$store.state.itemList
@@ -41,5 +36,3 @@ export default class List extends Vue {
   }
 }
 </script>
-
-<style scoped></style>

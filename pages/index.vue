@@ -12,5 +12,3 @@ import { Component, Vue } from 'vue-property-decorator'
 })
 export default class MainPage extends Vue {}
 </script>
-
-<style scoped></style>
