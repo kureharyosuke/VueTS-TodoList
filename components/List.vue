@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="input-group" :key="item" v-for="item in itemList">
-      <span class="input-group-addon" id="basic-addon1">
+    <div v-for="item in itemList" :key="item" class="input-group">
+      <span id="basic-addon1" class="input-group-addon">
         <input type="checkbox" :checked="item.status == 'clear'" />
       </span>
       <input type="text" class="form-control" :value="item.content" />
@@ -9,7 +9,7 @@
         <button
           class="btn btn-defalut"
           type="button"
-          @click="removeItem(Item.id)"
+          @click="removeItem(item.id)"
         >
           X
         </button>
@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 
 interface ItemList {
   id: number
@@ -37,7 +37,7 @@ export default class List extends Vue {
   }
 
   removeItem(id: number) {
-    this.$store.commit('removeItem, id')
+    this.$store.commit('removeItem', id)
   }
 }
 </script>
